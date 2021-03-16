@@ -12,6 +12,7 @@ depositBtn.addEventListener('click',function(){
     const depositNumber = getInputNumber ('deposit-amount');
     updateInnerText('current-deposit', depositNumber);
     updateInnerText("current-balance", depositNumber);
+    document.getElementById('deposit-amount').value = "";
     
 
 })
@@ -19,7 +20,9 @@ depositBtn.addEventListener('click',function(){
 const withdrawBtn = document.getElementById('add-withdraw');
 withdrawBtn.addEventListener('click', function (){
     const withdrawNumber = getInputNumber('withdraw-amount');
-    console.log(withdrawNumber);
+    updateInnerText('current-withdraw', withdrawNumber);
+    updateInnerText('current-balance',-1*withdrawNumber);
+    document.getElementById('withdraw-amount').value = "";
 })
 function getInputNumber(id) {
     const amount = document.getElementById(id).value;
